@@ -46,7 +46,11 @@ CSV Export  →  Parser  →  Behavioral Classifier  →  Labeled Report
 
 ## 📊 Live Audit Output Sample
 
-This is what a real audit run looks like. Input: 47 trades from a Bybit USDT-perpetual account, 14-day window.
+Here's a screen capture of the audit running on sample data:
+
+![Audit demo — live console output](media.gif)
+
+Below is the text report format. The example shows a larger run; the bundled sample CSVs produce shorter reports.
 
 ```
 ═══════════════════════════════════════════════════════════════════
@@ -135,7 +139,7 @@ The agent classifies trades against a structured taxonomy built specifically for
 | Dollar cost per error type | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | No account linking required | ✅ | ❌ OAuth | ❌ OAuth | ✅ | ✅ | ✅ |
 | Data stays local (no cloud) | ✅ | ❌ SaaS | ❌ SaaS | ✅ | ✅ | ❌ OpenAI |
-| Structured psychological taxonomy | ✅ 7 classes | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Structured psychological taxonomy | ✅ 4 classes (7 in roadmap) | ❌ | ❌ | ❌ | ❌ | ❌ |
 | **Monthly cost** | **$0** | **$29.95/mo** | **$29.95/mo** | **$0** | **$0** | **~$20/mo** |
 
 ---
@@ -159,7 +163,8 @@ The agent classifies trades against a structured taxonomy built specifically for
 ║              ║         ▼             ║   Multi-session Heatmap    ║
 ║              ║   Behavioral          ║                            ║
 ║              ║   Classifier Agent    ║                            ║
-║              ║   (LangChain + LLM)   ║                            ║
+║              ║   (rule-based; LLM    ║                            ║
+║              ║    in full build)      ║                            ║
 ║              ║         │             ║                            ║
 ║              ║         ▼             ║                            ║
 ║              ║   Pattern Aggregator  ║                            ║
@@ -203,7 +208,7 @@ python audit.py --csv your_trades.csv --exchange binance --mode paper
 # Or omit --exchange to auto-detect from CSV headers
 ```
 
-Your audit report will be written to `./output/audit_report_[timestamp].txt`.
+Your audit report will be written to `./output/audit_report_YYYYMMDD_HHMMSS_microseconds.txt` (unique per run).
 
 **Try with sample data:**
 ```bash
