@@ -9,7 +9,7 @@
 ### *Your trade history already knows why you're losing. This makes it tell you.*
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![LangChain](https://img.shields.io/badge/LangChain-Agent-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white)](https://langchain.com)
+[![Pandas](https://img.shields.io/badge/Pandas-Data-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org)
 [![Binance](https://img.shields.io/badge/Binance-CSV%20Native-F0B90B?style=for-the-badge&logo=binance&logoColor=black)](https://binance.com)
 [![Bybit](https://img.shields.io/badge/Bybit-CSV%20Native-F7A600?style=for-the-badge&logo=bybit&logoColor=black)](https://bybit.com)
 [![Status](https://img.shields.io/badge/Status-Beta%20%7C%20Shipping%20Daily-orange?style=for-the-badge)]()
@@ -33,13 +33,13 @@ Most trading journals tell you *what* happened. P&L. Win rate. Average RR.
 
 This tool tells you *why* it happened — specifically, which cognitive and behavioral errors appear in your trade history, how often, which market conditions trigger them, and how much they cost you in dollar terms.
 
-Drop in your **Binance or Bybit CSV export**. The AI agent parses every trade, sequences them chronologically, reconstructs the decision context around each one, and runs them through a psychological error classifier. You get back a structured audit report: flagged trades, error labels, severity scores, and a pattern summary.
+Drop in your **Binance or Bybit CSV export**. The tool parses every trade, sequences them chronologically, reconstructs the decision context around each one, and runs them through a psychological error classifier. You get back a structured audit report: flagged trades, error labels, severity scores, and a pattern summary.
 
 No API keys. No account linking. No cloud upload of your trade data. **Your CSV never leaves your machine.**
 
 ```
-CSV Export  →  AI Agent  →  Behavioral Audit  →  Labeled Report
-(your data)    (local)       (pattern detect)      (what to fix)
+CSV Export  →  Parser  →  Behavioral Classifier  →  Labeled Report
+(your data)    (local)    (pattern detection)       (what to fix)
 ```
 
 ---
@@ -186,11 +186,11 @@ source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-**Step 3 — Configure your LLM provider in `.env`**
+**Step 3 — (Optional) Configure LLM in `.env` for future enrichment**
 ```bash
 cp .env.example .env
-# Edit .env and set your preferred LLM key
-# Supports: OpenAI, Anthropic, Ollama (local/free), Groq
+# The beta uses rule-based classification — no API key required.
+# .env is for future LLM-backed features (v0.5.1+).
 ```
 
 **Step 4 — Export your trade history CSV**
@@ -200,9 +200,16 @@ cp .env.example .env
 **Step 5 — Run the audit (paper mode — read only, no live connection)**
 ```bash
 python audit.py --csv your_trades.csv --exchange binance --mode paper
+# Or omit --exchange to auto-detect from CSV headers
 ```
 
 Your audit report will be written to `./output/audit_report_[timestamp].txt`.
+
+**Try with sample data:**
+```bash
+python audit.py --csv sample_trades_bybit.csv --exchange bybit --mode paper
+python audit.py --csv sample_trades_binance.csv --exchange binance --mode paper
+```
 
 ---
 
@@ -307,7 +314,7 @@ This software is in active beta development (`v0.4.x`). It is provided for **inf
 
 <div align="center">
 
-**Built with** Python · LangChain · Pandas · Rich · OpenAI / Ollama
+**Built with** Python · Pandas · Rich
 
 *Because your trade history already knows the truth. This just makes it legible.*
 

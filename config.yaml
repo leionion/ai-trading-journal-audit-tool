@@ -1,0 +1,28 @@
+# config.yaml — AI Trading Journal Audit Tool
+
+# ── LLM Settings ──────────────────────────────────────────────────
+llm:
+  provider: openai          # openai | anthropic | ollama | groq
+  model: gpt-4o-mini        # gpt-4o-mini is sufficient; gpt-4o for higher accuracy
+  temperature: 0.1          # keep low — deterministic classifications
+  max_tokens: 2000
+
+# ── Behavioral Classifier Settings ────────────────────────────────
+classifier:
+  revenge_trading_window_minutes: 10    # time window to check for loss→entry pattern
+  overleverage_median_multiplier: 2.0   # triggers if leverage > 2x personal 14d median
+  fomo_candle_threshold_pct: 4.0        # entry after X% candle with no pullback
+  min_trades_for_pattern: 3             # minimum trades before pattern-level flagging
+
+# ── Exchange Schema ────────────────────────────────────────────────
+exchange:
+  name: binance             # binance | bybit
+  instrument_type: futures  # futures | spot
+  currency: USDT
+
+# ── Output Settings ────────────────────────────────────────────────
+output:
+  format: text              # text | json | both
+  include_raw_flags: true   # include per-trade detection reasoning
+  dollar_attribution: true  # calculate PnL attributed to each error class
+  session_analysis: true    # break down performance by UTC session
