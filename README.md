@@ -1,54 +1,40 @@
-<!-- ai trading journal audit tool | ai-trading-journal-audit-tool github | leionion trading journal | trading psychology audit tool | ai trade analyzer binance bybit -->
-<!-- how to detect revenge trading in trade history | how to analyze trading mistakes with AI | build trading psychology analyzer python 2026 | binance csv trade analysis python | bybit trade history psychological analysis -->
-<!-- best AI trading journal crypto 2026 | trading psychology audit tool binance bybit | AI trading coach behavioral analysis | get trading journal AI analysis | crypto trade mistake detector python -->
-
 <div align="center">
 
 # AI Trading Journal Audit Tool
 
-### *Your trade history already knows why you're losing. This makes it tell you.*
+### Analyze Binance and Bybit trading journal CSV files to detect behavioral trading mistakes
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Pandas](https://img.shields.io/badge/Pandas-Data-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org)
-[![Binance](https://img.shields.io/badge/Binance-CSV%20Native-F0B90B?style=for-the-badge&logo=binance&logoColor=black)](https://binance.com)
-[![Bybit](https://img.shields.io/badge/Bybit-CSV%20Native-F7A600?style=for-the-badge&logo=bybit&logoColor=black)](https://bybit.com)
-[![Status](https://img.shields.io/badge/Status-Beta%20%7C%20Shipping%20Daily-orange?style=for-the-badge)]()
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-
-**[→ What This Does](#-what-this-actually-does) · [→ Live Audit Sample](#-live-audit-output-sample) · [→ Error Taxonomy](#-psychological-error-taxonomy) · [→ How To Run It](#-installation--setup) · [→ Full Private Build](#-want-the-full-audit-engine)**
-
----
-
-> The public repo audits behavioral patterns from your CSV.
-> The private build adds session-level emotion tracking, multi-exchange comparison, GPT-4o coaching prompts, and a full Streamlit dashboard.
-> **Scroll to the bottom if you're serious about using it.**
+> Local-first trading journal analyzer for identifying revenge trading, overleverage, FOMO entries, session weakness, and other costly trading patterns from your CSV history.
 
 </div>
 
 ---
 
-## 🧠 What This Actually Does
-
-Most trading journals tell you *what* happened. P&L. Win rate. Average RR.
-
-This tool tells you *why* it happened — specifically, which cognitive and behavioral errors appear in your trade history, how often, which market conditions trigger them, and how much they cost you in dollar terms.
-
-Drop in your **Binance or Bybit CSV export**. The tool parses every trade, sequences them chronologically, reconstructs the decision context around each one, and runs them through a psychological error classifier. You get back a structured audit report: flagged trades, error labels, severity scores, and a pattern summary.
-
-No API keys. No account linking. No cloud upload of your trade data. **Your CSV never leaves your machine.**
-
-```
-CSV Export  →  Parser  →  Behavioral Classifier  →  Labeled Report
-(your data)    (local)    (pattern detection)       (what to fix)
-```
-
----
-
-## 📊 Live Audit Output Sample
-
-Here's a screen capture of the audit running on sample data:
-
 ![Audit demo — live console output](media.gif)
+
+## What This Project Does
+
+AI Trading Journal Audit Tool is a **trading journal analyzer** for **Binance** and **Bybit** CSV exports.
+
+Most trading journals show basic metrics like win rate, profit and loss, or average risk-reward. This tool goes further by identifying **behavioral trading mistakes** and showing which patterns are damaging performance.
+
+It reads your trade history, reconstructs trade sequences, detects repeated error patterns, and generates an audit report with:
+
+- flagged trades
+- behavioral error labels
+- severity scores
+- session-based performance analysis
+- estimated dollar cost by error type
+
+This project is built for:
+
+- crypto traders reviewing their own performance
+- discretionary traders trying to reduce emotional mistakes
+- trading coaches and educators
+- developers building trading psychology or journaling products
+
+**Everything runs locally.**  
+No exchange account linking, no cloud upload, and no requirement to send trading data to external services.
 
 Below is the text report format. The example shows a larger run; the bundled sample CSVs produce shorter reports.
 
@@ -302,29 +288,3 @@ The public build gives you the core classifier. Serious traders who want the com
 The gap between this public build and the private one isn't a matter of time — it's a feature gap that's intentional. The full version surfaces the things most traders don't want to see. That's exactly why it works.
 
 ---
-
-## ⚠️ Risk Disclaimer
-
-This software is in active beta development (`v0.4.x`). It is provided for **informational and analytical purposes only**.
-
-- This tool does **not** execute trades, connect to any exchange API, or manage funds in any way
-- Behavioral pattern identification is probabilistic — classifications are AI-generated and should be reviewed critically
-- **Past trade patterns do not predict future results**
-- Nothing in this tool constitutes financial advice, investment advice, or a recommendation to buy or sell any asset
-- Crypto derivatives trading carries substantial risk of loss, including total loss of capital
-- The authors accept no liability for trading decisions made based on output from this tool
-- Use paper mode (`--mode paper`) when testing to confirm expected behavior before relying on any output
-
----
-
-<div align="center">
-
-**Built with** Python · Pandas · Rich
-
-*Because your trade history already knows the truth. This just makes it legible.*
-
----
-
-</div>
-
-<!-- get trading journal audit tool | ai trading journal full version | contact trading audit developer | leionion full build | crypto behavioral audit tool private | trading psychology analyzer full access | get ai trade analyzer binance bybit | trading journal ai private build -->
