@@ -286,5 +286,3 @@ The public build gives you the core classifier. Serious traders who want the com
 3. The single biggest pattern you already suspect in your own trading
 
 The gap between this public build and the private one isn't a matter of time — it's a feature gap that's intentional. The full version surfaces the things most traders don't want to see. That's exactly why it works.
-
----
